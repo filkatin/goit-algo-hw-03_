@@ -12,6 +12,14 @@ def draw_koch_snowflake(order, size=300):
     window = turtle.Screen()
     window.bgcolor("white")
 
+def main():
+    try:
+        order = int(input("Введіть рівень рекурсії для сніжинки Коха: "))
+    except ValueError:
+        print("Будь ласка, введіть ціле число.")
+        return
+
+    size = 300
     t = turtle.Turtle()
     t.speed(0)  
     t.penup()
@@ -23,7 +31,10 @@ def draw_koch_snowflake(order, size=300):
         koch_curve(t, order, size)
         t.right(120)
 
+    draw_koch_snowflake(3, size)
+
     window.mainloop()
 
 
-draw_koch_snowflake(3)
+if __name__ == "__main__":
+    main()
